@@ -1,0 +1,12 @@
+<h1 class="ui header">Okta Sign In Widget Demonstration</h1>
+<div *ngIf="!(authStateService.authState$ | async)?.isAuthenticated">
+  <p>Please click Login</p>
+  <button id="login-button" class="ui primary button" role="button" routerLink="/login">Login</button>
+</div>
+
+<div *ngIf="(authStateService.authState$ | async)?.isAuthenticated && userName">
+  <p>Welcome back, {{ userName }}!</p>
+  <p>
+    You have successfully authenticated against your Okta org. Now you can access the protected pages of the application.
+  </p>
+</div>
